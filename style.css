@@ -117,24 +117,51 @@ div {
 }
 
 .stupen {
-    --cvet: #FF4C2B;
-    --sdvig: 20px;
+    position: relative; 
+    z-index: 0;       
     height: 72px;
     border: none;
     color: #ffffff;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 20px;
     cursor: pointer;
-    background-color: transparent;
-    background: linear-gradient(var(--cvet), var(--cvet)) top right / calc(100% - var(--sdvig)) 36px no-repeat,
-        linear-gradient(var(--cvet), var(--cvet)) bottom left / calc(100% - var(--sdvig)) 36px no-repeat;
+    background-color: transparent; 
+}
+
+.stupen::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 20px;
+    right: 0;
+    height: 36px;
+    background-color: #FF4C2B;
+}
+
+.stupen::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 20px;
+    height: 36px;
+    background-color: #FF4C2B;
 }
 
 .second {
     width: 427px;
-    --sdvig: 18px;
     font-weight: 400;
+}
+
+.second::before {
+    left: 18px;
+}
+
+.second::after {
+    right: 18px;
 }
 
 .nizhe_seredini2 {
@@ -308,7 +335,7 @@ div {
     background-image: url(img/card12.jpg);
 }
 
-/* экран */
+/* экран 4 */
 
 .STOIMOST {
     display: flex;
@@ -415,20 +442,31 @@ div {
     line-height: 20px;
 }
 
-.tarif_pravo input,
-.dop_niz input {
+.tarif_pravo button,
+.dop_niz button {
     margin-top: 33px;
 }
 
 .knopka_tarif1 {
     width: 340px;
-    --sdvig: 0px;
+}
+
+.knopka_tarif1::before {
+    left: 0;
+}
+
+.knopka_tarif1::after {
+    right: 0;
 }
 
 .knopka_tarif2 {
     width: 360px;
-    --cvet: #ffffff;
     color: #FF4C2B;
+}
+
+.knopka_tarif2::before,
+.knopka_tarif2::after {
+    background-color: #ffffff;
 }
 
 .knopka_tarif3 {
@@ -485,12 +523,26 @@ div {
 
 .knopka_dop1 {
     width: 415px;
-    --sdvig: 0px;
+}
+
+.knopka_dop1::before {
+    left: 0;
+}
+
+.knopka_dop1::after {
+    right: 0;
 }
 
 .knopka_dop2 {
     width: 439px;
-    --sdvig: 24px;
+}
+
+.knopka_dop2::before {
+    left: 24px;
+}
+
+.knopka_dop2::after {
+    right: 24px;
 }
 
 .kviz {
@@ -525,6 +577,11 @@ div {
     width: 373px;
     margin-top: 45px;
     color: #FF4C2B;
+}
+
+.knopka_kviz::before,
+.knopka_kviz::after {
+    background-color: #ffffff;
 }
 
 /* 5 экран */
@@ -669,10 +726,17 @@ div {
 
 .knopka_kp {
     width: 439px;
-    --sdvig: 24px;
 }
 
-/* 7 экоан */
+.knopka_kp::before {
+    left: 24px;
+}
+
+.knopka_kp::after {
+    right: 24px;
+}
+
+/* 7 экран */
 
 .KONTAKTY {
     display: flex;
@@ -785,17 +849,6 @@ div {
 }
 
 /* адаптация */
-@media (max-width: 1440px) {
-    .GLAVNAYA, .niz, .PORTFOLIO, .STOIMOST, .KAK_RABOTAEM, .KP, .KONTAKTY {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
-    .GLAVNAYA {
-        background-position: -250px -225px, right 170px;
-    }
-}
-
 @media (max-width: 1240px) {
     .GLAVNAYA, .niz, .KP, .KONTAKTY {
         height: auto;
@@ -806,66 +859,52 @@ div {
         background-size: 600px, 400px 250px;
         background-position: -200px -200px, right bottom;
     }
-
     .SEREDINAA, .portfolio_verh, .BLOCK, .tarif, .doptarifi, .shagi, .KP, .kontakty_verh {
         flex-direction: column;
     }
-
     .nizhe_seredini1, .zagolovok_turizmo, .tarif_levo, .dop, .kp_levo, .kp_pravo, .kp_text, .kviz_text, .kontakty_levo, .kontakty_text, .shagi_stolbec, .shag, .blocki {
         width: 100%;
     }
-
     .tarif, .dop, .kviz, .blocki, .shag {
         height: auto;
     }
-
     .tarif, .dop, .blocki {
         padding: 40px 30px;
     }
-
     .stupen, .pole, .knopka_forma {
         width: 100%;
         max-width: 440px;
     }
-
     .proekt {
         width: 100%;
         max-width: 360px;
     }
-
     .proekty {
         justify-content: center;
     }
-
     .PORTFOLIO, .STOIMOST, .KAK_RABOTAEM, .KP, .KONTAKTY {
         padding-top: 70px;
         padding-bottom: 70px;
     }
-
     .niz {
         padding-top: 50px;
         padding-bottom: 50px;
     }
-
     .seredina h2 {
         font-size: 42px;
         line-height: 48px;
     }
-
     .dop_niz, .kontakty_pravo, .politika, .nomer {
         margin-top: 30px;
     }
-
     .portfolio_text, .tarif .tarif_pravo, .stolbec_2, .stolbec_3 {
         margin-top: 0;
     }
-
     .kp_pravo {
         align-self: flex-start;
         margin-top: 30px;
         margin-bottom: 0;
     }
-
     .opcionalno {
         margin-right: 0;
     }
@@ -875,42 +914,34 @@ div {
     br {
         display: none;
     }
-
     .shapka {
         flex-direction: column;
         gap: 15px;
     }
-
     .knopki_v_shapke {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
     }
-
     .seredina {
         margin-top: 40px;
     }
-
     .seredina h2 {
         font-size: 34px;
         line-height: 40px;
     }
-
     .razrabotka, .stoimost_zagolovok {
         font-size: 28px;
         line-height: 34px;
     }
-
     .zagolovok_turizmo, .kontakty_zagolovok {
         font-size: 44px;
         line-height: 52px;
     }
-
     .tarif_nazvanie {
         font-size: 30px;
         line-height: 36px;
     }
-
     .cena {
         font-size: 44px;
     }
@@ -921,61 +952,49 @@ div {
         padding-left: 15px;
         padding-right: 15px;
     }
-
     .seredina h2 {
         font-size: 26px;
         line-height: 32px;
     }
-
     .nizhe_seredini1, .text_v_blocki, .tarif_text, .shag_text, .kp_text, .kontakty_text {
         font-size: 15px;
         line-height: 24px;
     }
-
     .stupen {
         font-size: 14px;
     }
-
     .razrabotka, .stoimost_zagolovok, .kp_zagolovok, .kviz_zagolovok {
         font-size: 22px;
         line-height: 28px;
     }
-
     .zagolovok_turizmo, .kontakty_zagolovok {
         font-size: 32px;
         line-height: 40px;
     }
-
     .GLAVNtext_v_blocki {
         font-size: 28px;
         line-height: 32px;
     }
-
     .tarif_nazvanie, .dop_nazvanie, .shag_nazvanie {
         font-size: 22px;
         line-height: 28px;
     }
-
     .tarif_etapi {
         font-size: 20px;
         line-height: 26px;
     }
-
     .cena {
         font-size: 34px;
         line-height: 42px;
     }
-
     .nomer {
         font-size: 80px;
         line-height: 96px;
     }
-
     .kontakty_telefon {
         font-size: 26px;
         line-height: 34px;
     }
-
     .kontakty_pochta {
         font-size: 18px;
     }
